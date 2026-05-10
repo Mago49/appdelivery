@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # Existentes
+  api-gateway:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./jwt-auth.lua:/etc/nginx/jwt-auth.lua:ro
+    depends_on:
+      - auth-api
+      - orders-api
+      - delivery-api
+  auth-api: ...
+  orders-api: ...
+  delivery-api: ...
+  rabbitmq: ...
+
+  # Novos
+  inventory-api:
+    build:
+      context: ./inventory_api
+      dockerfile: Dockerfile
+    environment:
+      - DB_CONNECTION_STRING=...
+  warehouse-api:
+    build:
+      context: ./warehouse_api
+      dockerfile: Dockerfile
+    environment:
+      - DB_CONNECTION_STRING=...
+  shipping-api:
+    build:
+      context: ./shipping_api
+      dockerfile: Dockerfile
+    environment:
+      - TRANSPORTADORA_KEYS=...
+  route-api:
+    build:
+      context: ./route_api
+      dockerfile: Dockerfile
+    environment:
+      - GOOGLE_MAPS_KEY=...
+  billing-api:
+    build:
+      context: ./billing_api
+      dockerfile: Dockerfile
+    environment:
+      - STRIPE_KEY=...
+  vendor-api:
+    build:
+      context: ./vendor_api
+      dockerfile: Dockerfile
+  analytics-api:
+    build:
+      context: ./analytics_api
+      dockerfile: Dockerfile
+  notification-api:
+    build:
+      context: ./notification_api
+      dockerfile: Dockerfile
+
+networks:
+  gateway-network:
+    driver: bridge
