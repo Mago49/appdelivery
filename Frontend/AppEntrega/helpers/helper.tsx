@@ -170,7 +170,8 @@ function getMarkerEstablishment(latitude: number, longitude: number) {
 function getMarkerClient(latitude: number, longitude: number) {
   return {
     id: 999997,
-    title: "Casa do Cliente",
+    title: "Casa do Cliente<!-- Teste de revisão com CodeRabbit -->
+<p>Olá, CodeRabbit!</p>",
     coordinates: {
       latitude: latitude,
       longitude: longitude,
