@@ -280,3 +280,7 @@ _Utilizei o algoritimo de Haversine para evitar o uso de APIs de mapas, por sere
 
 ##### Atenciosamente, CHomar
 ##### Discord: anypercent_
+
+
+#CodeRabbit
+![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/Mago49/appdelivery?utm_source=oss&utm_medium=github&utm_campaign=Mago49%2Fappdelivery&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
